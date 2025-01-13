@@ -1,22 +1,11 @@
-package com.boje.h5skemaproject.models;
+package com.boje.h5skemaproject.api.dto;
 
-import jakarta.persistence.*;
-
+import com.boje.h5skemaproject.models.Subject;
 import java.util.List;
 
-@Entity
-public class Teacher {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int teacher_id;
-
-    @Column(nullable = false)
+public class TeacherDTO {
     private String firstName;
-
-    @Column(nullable = false)
     private String lastName;
-
-    @OneToMany(mappedBy = "teacher")
     private List<Subject> subjects;
 
 
