@@ -24,9 +24,14 @@ public class SubjectServiceImp implements SubjectService {
 
     @Override
     public SubjectDTO createSubject(SubjectDTO subjectDTO) {
-        Subject subject = modelMapper.toSubject(subjectDTO);
-        Subject savedSubject = subjectRepository.save(subject);
-        return modelMapper.toSubjectDTO(savedSubject);
+        try{
+            Subject subject = modelMapper.toSubject(subjectDTO);
+            Subject savedSubject = subjectRepository.save(subject);
+            return modelMapper.toSubjectDTO(savedSubject);
+        }
+        catch(Exception e){
+            throw new ResourceNotFoundException(e.getMessage());
+        }
     }
 
 
@@ -40,10 +45,15 @@ public class SubjectServiceImp implements SubjectService {
 
     @Override
     public List<SubjectDTO> getAllSubjects() {
-        List<Subject> subjects = subjectRepository.findAll();
-        return subjects.stream()
-                .map(modelMapper::toSubjectDTO)
-                .collect(Collectors.toList());
+        try{
+            List<Subject> subjects = subjectRepository.findAll();
+            return subjects.stream()
+                    .map(modelMapper::toSubjectDTO)
+                    .collect(Collectors.toList());
+        }
+        catch (Exception e){
+            throw new ResourceNotFoundException(e.getMessage());
+        }
     }
 
 

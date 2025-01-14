@@ -22,9 +22,14 @@ public class DayServiceImp implements DayService {
 
     @Override
     public DayDTO createDay(DayDTO dayDTO) {
-        Day day = modelMapper.toDay(dayDTO);
-        Day savedsDay = dayRepository.save(day);
-        return modelMapper.toDayDTO(savedsDay);
+        try{
+            Day day = modelMapper.toDay(dayDTO);
+            Day savedsDay = dayRepository.save(day);
+            return modelMapper.toDayDTO(savedsDay);
+        }
+        catch (Exception e){
+            throw new ResourceNotFoundException(e.getMessage());
+        }
     }
 
 
@@ -38,10 +43,15 @@ public class DayServiceImp implements DayService {
 
     @Override
     public List<DayDTO> getAllDays(){
-        List<Day> days = dayRepository.findAll();
-        return days.stream()
-                .map(modelMapper::toDayDTO)
-                .collect(Collectors.toList());
+        try{
+            List<Day> days = dayRepository.findAll();
+            return days.stream()
+                    .map(modelMapper::toDayDTO)
+                    .collect(Collectors.toList());
+        }
+        catch (Exception e){
+            throw new ResourceNotFoundException(e.getMessage());
+        }
     }
 
 

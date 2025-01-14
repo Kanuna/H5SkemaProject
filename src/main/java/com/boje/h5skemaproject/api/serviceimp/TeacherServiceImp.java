@@ -8,8 +8,6 @@ import com.boje.h5skemaproject.models.Teacher;
 import com.boje.h5skemaproject.repositories.TeacherRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.ResourceAccessException;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,9 +23,14 @@ public class TeacherServiceImp implements TeacherService {
 
     @Override
     public TeacherDTO createTeacher(TeacherDTO teacherDTO) {
-        Teacher teacher = modelMapper.toTeacher(teacherDTO);
-        teacherRepository.save(teacher);
-        return modelMapper.toTeacherDTO(teacher);
+        try{
+            Teacher teacher = modelMapper.toTeacher(teacherDTO);
+            teacherRepository.save(teacher);
+            return modelMapper.toTeacherDTO(teacher);
+        }
+        catch(Exception e){
+            throw new ResourceNotFoundException(e.getMessage());
+        }
     }
 
     @Override
@@ -39,10 +42,16 @@ public class TeacherServiceImp implements TeacherService {
 
     @Override
     public List<TeacherDTO> getAllTeachers() {
-        List<Teacher> teachers = teacherRepository.findAll();
-        return teachers.stream()
-                .map(modelMapper::toTeacherDTO)
-                .collect(Collectors.toList());
+        try{
+            List<Teacher> teachers = teacherRepository.findAll();
+            return teachers.stream()
+                    .map(modelMapper::toTeacherDTO)
+                    .collect(Collectors.toList());
+        }
+        catch (Exception e){
+            throw new ResourceNotFoundException(e.getMessage());
+        }
+
     }
 
     @Override
