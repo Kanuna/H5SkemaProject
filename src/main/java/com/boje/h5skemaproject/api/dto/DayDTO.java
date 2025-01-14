@@ -7,6 +7,7 @@ import com.boje.h5skemaproject.models.Teacher;
 import java.time.LocalDate;
 
 public class DayDTO {
+    private int day_id;
     private LocalDate date;
     private Day.DayOfWeek day_of_week;
     private Subject subject;
@@ -21,6 +22,10 @@ public class DayDTO {
         Fredag
     }
 
+
+    public int getDay_id() {
+        return day_id;
+    }
 
     public LocalDate getLocalDate(){
         return date;

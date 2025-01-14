@@ -5,10 +5,16 @@ import com.boje.h5skemaproject.models.Day;
 import java.util.List;
 
 public class SubjectDTO {
+    private int subject_id;
     private String name;
     private short hoursAmount;
     private short hoursTP;
     private List<Day> days;
+
+
+    public int getSubject_id() {
+        return subject_id;
+    }
 
     public String getName(){
         return name;

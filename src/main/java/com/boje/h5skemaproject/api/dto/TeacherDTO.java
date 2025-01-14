@@ -4,10 +4,15 @@ import com.boje.h5skemaproject.models.Subject;
 import java.util.List;
 
 public class TeacherDTO {
+    private int teacher_id;
     private String firstName;
     private String lastName;
     private List<Subject> subjects;
 
+
+    public int getTeacher_id() {
+        return teacher_id;
+    }
 
     public String getFirstName() {
         return firstName;
