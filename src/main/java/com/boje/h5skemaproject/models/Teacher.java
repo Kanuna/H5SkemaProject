@@ -17,7 +17,8 @@ public class Teacher {
     private String lastName;
 
     @OneToMany(mappedBy = "teacher")
-    private List<Subject> subjects;
+    private List<Day> day;
+
 
 
     public String getFirstName() {
@@ -38,10 +39,17 @@ public class Teacher {
         }
     }
 
-    public List<Subject> getSubjects() {
+    public List<Day> getDay() {
+        return day;
+    }
+    public void setDay(List<Day> day) {
+        this.day = day;
+    }
+
+/*    public List<Subject> getSubjects() {
         return subjects;
     }
     public void setSubjects(List<Subject> subjects) {
         this.subjects = subjects;
-    }
+    }*/
 }

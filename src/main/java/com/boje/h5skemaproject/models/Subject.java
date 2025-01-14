@@ -22,8 +22,6 @@ public class Subject {
     private List<Day> days;
 
 
-
-
     public String getName(){
         return name;
     }

@@ -1,8 +1,6 @@
 package com.boje.h5skemaproject.models;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDate;
 
@@ -20,12 +18,11 @@ public class Day {
     private DayOfWeek day_of_week;
 
     @ManyToOne
-    @JoinColumn(name="subject_id")
+    @JoinColumn(name="subject_id", nullable = false)
     private Subject subject;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "teacher_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.SET_NULL)
     private Teacher teacher;
 
 
