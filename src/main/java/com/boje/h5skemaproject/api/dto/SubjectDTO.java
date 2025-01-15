@@ -9,7 +9,6 @@ public class SubjectDTO {
     private String name;
     private short hoursAmount;
     private short hoursTP;
-    private List<Day> days;
 
 
     public int getSubject_id() {
@@ -37,12 +36,5 @@ public class SubjectDTO {
     }
     public void setHoursTP(Short hoursTP){
         this.hoursTP = hoursTP;
-    }
-
-    public List<Day> getDays(){
-        return days;
-    }
-    public void setDays(List<Day> days){
-        this.days = days;
     }
 }

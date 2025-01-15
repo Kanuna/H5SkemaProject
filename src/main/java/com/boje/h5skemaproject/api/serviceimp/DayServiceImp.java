@@ -13,10 +13,11 @@ import java.util.stream.Collectors;
 @Service
 public class DayServiceImp implements DayService {
     private final DayRepository dayRepository;
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
-    public DayServiceImp(DayRepository dayRepository) {
+    public DayServiceImp(DayRepository dayRepository, ModelMapper modelMapper) {
         this.dayRepository = dayRepository;
+        this.modelMapper = modelMapper;
     }
 
 

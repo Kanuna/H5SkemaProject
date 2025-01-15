@@ -15,10 +15,11 @@ import java.util.stream.Collectors;
 @Service
 public class SubjectServiceImp implements SubjectService {
     private final SubjectRepository subjectRepository;
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
-    public SubjectServiceImp(SubjectRepository subjectRepository) {
+    public SubjectServiceImp(SubjectRepository subjectRepository, ModelMapper modelMapper) {
         this.subjectRepository = subjectRepository;
+        this.modelMapper = modelMapper;
     }
 
 

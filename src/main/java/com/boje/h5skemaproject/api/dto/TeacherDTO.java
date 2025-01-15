@@ -6,7 +6,6 @@ public class TeacherDTO {
     private int teacher_id;
     private String firstName;
     private String lastName;
-    private List<DayDTO> days;
 
 
     public int getTeacher_id() {
@@ -28,15 +27,6 @@ public class TeacherDTO {
     public void setLastName(String lastName) {
         if(!lastName.isEmpty()){
             this.lastName = lastName;
-        }
-    }
-
-    public List<DayDTO> getDays() {
-        return days;
-    }
-    public void setDays(List<DayDTO> days) {
-        if(!days.isEmpty()){
-            this.days = days;
         }
     }
 }

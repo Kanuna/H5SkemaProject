@@ -14,10 +14,11 @@ import java.util.stream.Collectors;
 @Service
 public class TeacherServiceImp implements TeacherService {
     private final TeacherRepository teacherRepository;
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
-    public TeacherServiceImp(TeacherRepository teacherRepository) {
+    public TeacherServiceImp(TeacherRepository teacherRepository, ModelMapper modelMapper) {
         this.teacherRepository = teacherRepository;
+        this.modelMapper = modelMapper;
     }
 
 
