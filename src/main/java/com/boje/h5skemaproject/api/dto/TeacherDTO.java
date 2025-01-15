@@ -1,6 +1,5 @@
 package com.boje.h5skemaproject.api.dto;
 
-import com.boje.h5skemaproject.models.Subject;
 import java.util.List;
 
 public class TeacherDTO {

@@ -16,7 +16,7 @@ public class TeacherController {
         this.teacherServiceImp = teacherServiceImp;
     }
 
-    @GetMapping("/create")
+    @PostMapping("/create")
     public TeacherDTO createTeacher(@RequestBody TeacherDTO teacherDTO){
         return teacherServiceImp.createTeacher(teacherDTO);
     }
@@ -31,12 +31,12 @@ public class TeacherController {
         return teacherServiceImp.getAllTeachers();
     }
 
-    @GetMapping("/update")
+    @PutMapping("/update")
     public TeacherDTO updateTeacher(@RequestBody TeacherDTO teacherDTO){
         return teacherServiceImp.updateTeacher(teacherDTO);
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteTeacher(@PathVariable int id){
         teacherServiceImp.deleteTeacher(id);
     }

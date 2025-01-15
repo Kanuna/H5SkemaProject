@@ -3,7 +3,6 @@ package com.boje.h5skemaproject.api.controllers;
 import com.boje.h5skemaproject.api.dto.DayDTO;
 import com.boje.h5skemaproject.api.serviceimp.DayServiceImp;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -15,7 +14,7 @@ public class DayController {
         this.dayServiceImp = dayServiceImp;
     }
 
-    @GetMapping("/create")
+    @PostMapping
     public DayDTO createDay(@RequestBody DayDTO dayDTO) {
         return dayServiceImp.createDay(dayDTO);
     }
@@ -30,12 +29,12 @@ public class DayController {
         return dayServiceImp.getAllDays();
     }
 
-    @GetMapping("/update")
+    @PutMapping("/update")
     public DayDTO updateDay(@RequestBody DayDTO dayDTO) {
         return dayServiceImp.updateDay(dayDTO);
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteDay(@PathVariable int id) {
         dayServiceImp.deleteDay(id);
     }
