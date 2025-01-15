@@ -17,7 +17,6 @@ public class TeacherController {
     }
 
     @GetMapping("/create")
-
     public TeacherDTO createTeacher(@RequestBody TeacherDTO teacherDTO){
         return teacherServiceImp.createTeacher(teacherDTO);
     }
