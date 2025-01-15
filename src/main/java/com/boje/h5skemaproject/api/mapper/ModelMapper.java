@@ -2,6 +2,7 @@ package com.boje.h5skemaproject.api.mapper;
 import com.boje.h5skemaproject.api.dto.*;
 import com.boje.h5skemaproject.models.*;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface ModelMapper {

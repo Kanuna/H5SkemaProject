@@ -7,7 +7,7 @@ public class TeacherDTO {
     private int teacher_id;
     private String firstName;
     private String lastName;
-    private List<Subject> subjects;
+    private List<DayDTO> days;
 
 
     public int getTeacher_id() {
@@ -32,10 +32,12 @@ public class TeacherDTO {
         }
     }
 
-    public List<Subject> getSubjects() {
-        return subjects;
+    public List<DayDTO> getDays() {
+        return days;
     }
-    public void setSubjects(List<Subject> subjects) {
-        this.subjects = subjects;
+    public void setDays(List<DayDTO> days) {
+        if(!days.isEmpty()){
+            this.days = days;
+        }
     }
 }
